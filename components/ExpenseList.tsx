@@ -1,7 +1,12 @@
-import { formatCurrency, formatShortDate } from "@/lib/formatters";
-import { CURRENCIES } from "@/lib/currency";
+"use client";
 
-export default function ExpenseList({ expenses }) {
+import { formatCurrency, formatShortDate } from "@/lib/formatters";
+import { CURRENCIES, isCurrency } from "@/lib/currency";
+import { useExpenses } from "@/context/ExpenseContext";
+
+export default function ExpenseList() {
+  const { expenses } = useExpenses();
+
   return (
     <section className="expense-list-section" aria-labelledby="expense-list-title">
       <div className="section-heading">
@@ -25,7 +30,10 @@ export default function ExpenseList({ expenses }) {
                 </time>
               </div>
               <strong>
-                {formatCurrency(expense.amount, expense.currency ?? CURRENCIES.USD)}
+                {formatCurrency(
+                  expense.amount,
+                  isCurrency(expense.currency) ? expense.currency : CURRENCIES.USD,
+                )}
               </strong>
             </li>
           ))}

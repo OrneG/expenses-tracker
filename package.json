@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tesseract.js": "7.0.0"
   },
   "devDependencies": {
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.16",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "typescript": "6.0.3"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   }
 }
